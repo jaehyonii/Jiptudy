@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-int zero;
-int one;
-
-#include <stdio.h>
-
 int main()
 {
     int cnt, num, zero, one;
