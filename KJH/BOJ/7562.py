@@ -1,6 +1,5 @@
 from collections import deque
 
-INF = 1e9
 dx = [2, 1, 2, 1, -2, -1, -2, -1]
 dy = [1, 2, -1, -2, 1, 2, -1, -2]
 
@@ -11,19 +10,27 @@ for _ in range(t):
 	knight = list(map(int, input().split())) # 나이트 좌표
 	dest = list(map(int, input().split())) # 목적지 좌표
 
-	board = [[INF] * l for _ in range(l)] # 체스판 생성
+	# 체스판 생성
+	# 나이트가 해당 좌표에 도달하기까지 최소 이동 횟수 기록
+	board = [[-1] * l for _ in range(l)]
 	
+	# 말 처음 좌표는 0번만에 도달 가능
 	q = deque()
 	q.append((knight[0], knight[1]))
 	board[knight[0]][knight[1]] = 0
 
+	# BFS
 	while q:
+		# 현재 나이트 좌표
 		x, y = q.popleft()
 		for i in range(8):
+			# 예상 이동 좌표
 			nx = x + dx[i]
 			ny = y + dy[i]
+
+			# 맵 안
 			if 0 <= nx and nx < l and 0 <= ny and ny < l:
-				if board[x][y] + 1 < board[nx][ny]:
+				if board[nx][ny] == -1:
 					board[nx][ny] = board[x][y] + 1
 					q.append((nx, ny))
 	
