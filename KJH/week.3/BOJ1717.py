@@ -1,4 +1,6 @@
 # union find algorithm
+import sys
+sys.setrecursionlimit(1000000)
 
 def find_parent(parent, x):
 	if parent[x] != x:
