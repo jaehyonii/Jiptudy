@@ -1,3 +1,5 @@
+# 2xn 타일링
+
 n = int(input())
 array = [-1] * 1001
 
