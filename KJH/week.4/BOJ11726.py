@@ -1,3 +1,5 @@
+# 2xn 타일링 2 DP
+
 n = int(input())
 array = [-1] * 1001
 
