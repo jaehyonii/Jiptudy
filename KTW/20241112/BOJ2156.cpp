@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int num, nMax;
+    int num;
     
     cin >> num;
     vector <int> dp(num+1);
@@ -19,14 +19,9 @@ int main() {
         sum[0] = 0;
         sum[1] = dp[1];
         sum[2] = dp[1] + dp[2];
-        nMax = sum[2];
-        for (int i = 3; i <= num; i++) {
-            sum[i] = dp[i] + sum[i-2];
-            for (int j = i - 3; j >= 0; j--)
-                sum[i] = max(sum[i], dp[i] + dp[i-1] + sum[j]);
-            nMax = max(nMax, sum[i]);
-        }
-        cout << nMax;
+        for (int i = 3; i <= num; i++)
+            sum[i] = max(sum[i-1], max(sum[i-2]+dp[i], sum[i-3]+dp[i-1]+dp[i]));
+        cout << sum[num];
     }
     return 0;
 }
