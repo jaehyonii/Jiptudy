@@ -1,4 +1,4 @@
-# RGB거리
+# 1, 2, 3 더하기
 def solution():
 	n = int(input())
 	dp = [0] * 11
