@@ -1,3 +1,4 @@
+# 단어 정렬
 n = int(input())
 array = []
 
