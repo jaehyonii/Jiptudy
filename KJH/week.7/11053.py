@@ -1,3 +1,4 @@
+# LIS
 n = int(input())
 arr = []
 dp = [1] * n
